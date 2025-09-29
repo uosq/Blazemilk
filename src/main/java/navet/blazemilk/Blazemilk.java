@@ -17,11 +17,20 @@ public class Blazemilk implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static boolean interact(MobEntity blaze, PlayerEntity player, Hand hand) {
+		if (blaze.getWorld().isClient) {
+			return false; // only run logic on the server
+		}
+
 		ItemStack stack = player.getStackInHand(hand);
 		if (stack.isOf(Items.BUCKET) && !blaze.isBaby()) {
+			// play sound
 			blaze.playSound(SoundEvents.ENTITY_BLAZE_HURT, 1.0f, 1.0f);
-			ItemUsage.exchangeStack(stack, player, Items.BUCKET.getDefaultStack());
-			player.setStackInHand(hand, stack);
+
+			// give lava bucket instead of empty bucket
+			ItemStack lavaBucket = ItemUsage.exchangeStack(stack, player, Items.LAVA_BUCKET.getDefaultStack());
+			player.setStackInHand(hand, lavaBucket);
+
+			return true; // signal successful interaction
 		}
 		return false;
 	}
