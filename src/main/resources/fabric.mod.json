@@ -1,14 +1,14 @@
 {
 	"schemaVersion": 1,
 	"id": "blazemilk",
-	"version": "1.1",
+	"version": "1.2",
 	"name": "blazemilk",
-	"description": "Milk as many Blazes as you want or something idk",
+	"description": "Milk as many Blazes as your heart desires!",
 	"authors": [
-		"tevinho"
+		"tevinnho"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "https://modrinth.com/user/tevinho",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
@@ -30,11 +30,8 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.21.4",
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.8",
 		"java": ">=21"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
